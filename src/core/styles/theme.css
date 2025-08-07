@@ -1,0 +1,32 @@
+:root {
+  /* Base */
+  --color-background: #f9fafb;
+  --color-text: #1f2937;
+  --color-light-grey: #f3f4f6;
+  --color-mid-grey: #d1d5db;
+  --color-dark-grey: gray;
+  --color-primary: #6366f1;
+
+  /* Sidebar */
+  --color-sidebar-bg: #e5e7eb;
+  --color-sidebar-text: #374151;
+
+  /* Habit Colors */
+  --color-sky: hsl(192, 89%, 71%);
+  --color-mint: hsl(137, 89%, 71%);
+  --color-lavender: hsl(270, 89%, 71%);
+  --color-coral: hsl(27, 89%, 71%);
+  --color-sun: hsl(48, 89%, 71%);
+  --color-ocean: hsl(199, 89%, 71%);
+  --color-blush: hsl(347, 89%, 71%);
+  --color-forest: hsl(118, 89%, 71%);
+  --color-amber: hsl(45, 89%, 71%);
+  --color-sapphire: hsl(221, 89%, 71%);
+  --color-rose: hsl(347, 89%, 71%);
+  --color-cyan: hsl(189, 89%, 71%);
+  --color-plum: hsl(271, 89%, 71%);
+  --color-clay: hsl(29, 89%, 71%);
+  --color-teal: hsl(172, 89%, 71%);
+  --color-apricot: hsl(43, 89%, 71%);
+  --color-slate: hsl(215, 89%, 71%);
+}
