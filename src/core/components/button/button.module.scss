@@ -1,0 +1,37 @@
+.button {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  transition: 200ms ease-in-out;
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  &--light {
+    color: var(--color-text);
+    background: white;
+  }
+  &--dark {
+    background: var(--color-text);
+    color: var(--color-background);
+  }
+  &--small {
+    padding: 6px 12px;
+    max-width: max-content;
+  }
+  &--medium {
+    padding: 8px 16px;
+    gap: 12px;
+    max-width: max-content;
+  }
+  &--large {
+    padding: 10px 20px;
+    gap: 12px;
+    max-width: max-content;
+  }
+}
