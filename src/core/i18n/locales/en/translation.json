@@ -34,5 +34,12 @@
   "add-a-question": "Add a Question",
   "bank-config": "Bank Configuration",
   "question-bank-form.create-question-bank": "Create Question Bank",
-  "save-config": "Save Configuration"
+  "save-config": "Save Configuration",
+  "profile": "Profile",
+  "profile.greeting": "Hello, {{name}}",
+  "profile.view-profile": "View Profile",
+  "name": "Name",
+  "email": "Email",
+  "logout": "Logout",
+  "profile.info": "Info"
 }

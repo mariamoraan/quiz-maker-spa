@@ -10,6 +10,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import { FaPlay } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSaveUp2 } from "react-icons/ci";
+import { MdAlternateEmail } from "react-icons/md";
+import { MdOutlineLogout } from "react-icons/md";
 
 export {
   FcGoogle as GoogleIcon,
@@ -24,4 +26,6 @@ export {
   FaPlay as PlayIcon,
   IoIosArrowForward as ForwardIcon,
   CiSaveUp2 as SaveIcon,
+  MdAlternateEmail as EmailIcon,
+  MdOutlineLogout as LogoutIcon,
 };

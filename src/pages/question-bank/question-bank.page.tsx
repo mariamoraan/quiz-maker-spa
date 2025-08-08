@@ -15,7 +15,7 @@ import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
 import type { Score } from "@/features/quiz/domain/score";
 import { getAllScores } from "@/features/quiz/services/get-all-scores";
-import { getMessageBasedOnScore } from "../utils/get-message-based-on-score";
+import { getMessageBasedOnScore } from "../../features/quiz/utils/get-message-based-on-score";
 
 const cn = bind(styles);
 

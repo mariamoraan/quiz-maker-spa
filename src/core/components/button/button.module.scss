@@ -44,4 +44,11 @@
     justify-content: center;
     align-items: center;
   }
+  &--none {
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: none;
+    color: var(--color-primary);
+  }
 }

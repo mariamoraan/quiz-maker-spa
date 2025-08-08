@@ -13,7 +13,7 @@ import { getQuestionBank } from "@/features/question-banks/services/get-question
 import type { Score } from "@/features/quiz/domain/score";
 import { generateUUID } from "@/core/utils/generate-uuid";
 import { postScore } from "@/features/quiz/services/post-score";
-import { getMessageBasedOnScore } from "../utils/get-message-based-on-score";
+import { getMessageBasedOnScore } from "../../features/quiz/utils/get-message-based-on-score";
 const cn = bind(styles);
 
 export const QuizPage = () => {

@@ -7,7 +7,7 @@ interface Props {
   onClick?: () => void;
   className?: string;
   size?: "full" | "small" | "medium" | "large";
-  color?: "light" | "dark" | "primary";
+  color?: "light" | "dark" | "primary" | "none";
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   type?: "button" | "submit" | "reset";
@@ -39,6 +39,7 @@ export const Button = ({
         "button--light": color === "light",
         "button--dark": color === "dark",
         "button--primary": color === "primary",
+        "button--none": color === "none",
         "button--center": center,
       })}
     >
