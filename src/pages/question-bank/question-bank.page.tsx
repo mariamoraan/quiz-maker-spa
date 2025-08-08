@@ -1,4 +1,4 @@
-import { GoBackArrowIcon } from "@/core/icons";
+import { CheckIcon, GoBackArrowIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
@@ -62,8 +62,41 @@ export const QuestionBankPage = () => {
           {questionBank.name}
         </h1>
       </div>
-      <h2>{questionBank.name}</h2>
-      <p>{questionBank.questions.length} questions</p>
+      <div className={cn("question-bank__info")}>
+        <h2 className={cn("question-bank__info__title")}>
+          {questionBank.name}
+        </h2>
+        <p className={cn("question-bank__info__subtitle")}>
+          {questionBank.questions.length} questions
+        </p>
+      </div>
+      <ul className={cn("question-bank__questions-list")}>
+        {questionBank.questions.map((question) => (
+          <li
+            className={cn("question-bank__questions-list__li")}
+            key={question.id}
+          >
+            <div className={cn("question-bank__questions-list__li__question")}>
+              <p> {question.text}</p>
+            </div>
+            <ul className={cn("question-bank__questions-list__li__answer")}>
+              {question.options
+                .filter((option) => option.isCorrect)
+                .map((correctOption) => (
+                  <li
+                    key={correctOption.id}
+                    className={cn(
+                      "question-bank__questions-list__li__answer__li"
+                    )}
+                  >
+                    <CheckIcon color="var(--color-success)" />
+                    <p>{correctOption.text}</p>
+                  </li>
+                ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
