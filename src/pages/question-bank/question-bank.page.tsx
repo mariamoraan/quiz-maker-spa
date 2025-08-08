@@ -13,7 +13,9 @@ import styles from "./question-bank.module.scss";
 import { bind } from "@/core/styles/bind";
 import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
-import { generateQuiz } from "@/features/quiz/utils/generate-quiz";
+import type { Score } from "@/features/quiz/domain/score";
+import { getAllScores } from "@/features/quiz/services/get-all-scores";
+
 const cn = bind(styles);
 
 const getInitialQuestionBank = (
@@ -38,18 +40,21 @@ export const QuestionBankPage = () => {
   const [questionBank, setQuestionBank] = useState<QuestionBank | null>(
     getInitialQuestionBank(questionBanks, id)
   );
+  const [scores, setScores] = useState<Score[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const setup = async (bankId: string) => {
-      if (questionBank?.userId !== user?.uid) return;
+    const setup = async (bankId: string, userId: string) => {
+      if (questionBank?.userId !== userId) return;
       setIsLoading(true);
-      const res = await getQuestionBank(bankId);
-      setQuestionBank(res);
+      const resBank = await getQuestionBank(bankId);
+      const resScores = await getAllScores({ userId, bankId });
+      setQuestionBank(resBank);
+      setScores(resScores);
       setIsLoading(false);
     };
     if (!user || !id || !questionBank?.userId) return;
-    setup(id);
+    setup(id, user.uid);
   }, [user, id, questionBank?.userId]);
 
   const handleGenerateQuiz = async () => {
@@ -62,6 +67,17 @@ export const QuestionBankPage = () => {
   // TODO: add good error message
   if (!questionBank) return <div>Question bank not found</div>;
 
+  const calcScoresAverage = (scores: Score[]): number => {
+    console.log("scores", scores);
+    return (
+      scores.reduce(
+        (prev, current) =>
+          prev + (current.score * 100) / Object.keys(current.answers).length,
+        0
+      ) / scores.length
+    );
+  };
+
   return (
     <div className={cn("question-bank")}>
       <div className={cn("question-bank__header")}>
@@ -73,9 +89,16 @@ export const QuestionBankPage = () => {
         </h1>
       </div>
       <div className={cn("question-bank__info")}>
-        <h2 className={cn("question-bank__info__title")}>
-          {questionBank.name}
-        </h2>
+        {scores?.length ? (
+          <div className={cn("question-bank__info__score")}>
+            <p className={cn("question-bank__info__score__title")}>
+              {t("average-score")}
+            </p>
+            <p className={cn("question-bank__info__score__score")}>
+              {calcScoresAverage(scores)}/100
+            </p>
+          </div>
+        ) : null}
         <p className={cn("question-bank__info__subtitle")}>
           {questionBank.questions.length} questions
         </p>

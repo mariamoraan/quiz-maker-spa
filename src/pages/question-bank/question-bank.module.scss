@@ -32,6 +32,19 @@
       color: var(--color-dark-grey);
       font-weight: 500;
     }
+    &__score {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      &__title {
+        font-weight: 500;
+        font-size: small;
+      }
+      &__score {
+        font-size: 32px;
+        color: #1e05a2;
+      }
+    }
   }
   &__questions-list {
     display: flex;
