@@ -3,6 +3,15 @@ import { QUESTIONS_BY_QUIZ_NUMBER, type Quiz } from "../domain/quiz";
 import type { Question } from "@/features/question-banks/domain/question";
 import { generateUUID } from "@/core/utils/generate-uuid";
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array]; // copiamos para no mutar el original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // índice aleatorio entre 0 y i
+    [arr[i], arr[j]] = [arr[j], arr[i]]; // intercambiamos
+  }
+  return arr;
+}
+
 function getRandomUniqueElements<T>(array: T[], maxCount: number): T[] {
   // Hacemos una copia para no modificar el array original
   const arr = [...array];
@@ -30,7 +39,11 @@ export const generateQuiz = ({
   );
   const newQuiz: Quiz = {
     id: generateUUID(),
-    questions: randomSet,
+    questions: randomSet.map((question) => ({
+      id: question.id,
+      text: question.text,
+      options: shuffleArray(question.options),
+    })),
     userId,
   };
 
