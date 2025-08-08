@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import type { QuestionBank, QuestionBanksList } from "../domain/question-bank";
+import type { QuestionBanksList } from "../domain/question-bank";
 import { getAllQuestionBanks } from "../services/get-all-question-banks";
 import { useAuth } from "@/features/auth/context/auth.context";
 
@@ -22,7 +22,7 @@ export const QuestionBanksProvider = ({
 }) => {
   const { user } = useAuth();
   const [questionBanks, setQuestionBanks] = useState<QuestionBanksList>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const setup = async (userId: string) => {

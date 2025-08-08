@@ -6,7 +6,7 @@ const cn = bind(styles);
 
 export const LoginPage = () => {
   const { t } = useTranslation();
-  console.log("HOLA 2");
+
   return (
     <div className={cn("login-page")}>
       <h1 className={cn("login-page__title")}>{t("sign-in-to-quiz-maker")}</h1>

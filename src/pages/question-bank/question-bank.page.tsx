@@ -41,11 +41,14 @@ export const QuestionBankPage = () => {
     getInitialQuestionBank(questionBanks, id)
   );
   const [scores, setScores] = useState<Score[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setQuestionBank(getInitialQuestionBank(questionBanks, id));
+  }, [questionBanks.length]);
 
   useEffect(() => {
     const setup = async (bankId: string, userId: string) => {
-      if (questionBank?.userId !== userId) return;
       setIsLoading(true);
       const resBank = await getQuestionBank(bankId);
       const resScores = await getAllScores({ userId, bankId });
@@ -53,9 +56,11 @@ export const QuestionBankPage = () => {
       setScores(resScores);
       setIsLoading(false);
     };
-    if (!user || !id || !questionBank?.userId) return;
+
+    if (!user?.uid || !id || !questionBank?.userId) return;
+    if (questionBank?.userId !== user.uid) return;
     setup(id, user.uid);
-  }, [user, id, questionBank?.userId]);
+  }, [user?.uid, id, questionBank?.userId]);
 
   const handleGenerateQuiz = async () => {
     if (!questionBank || !user?.uid) return;
@@ -68,7 +73,6 @@ export const QuestionBankPage = () => {
   if (!questionBank) return <div>Question bank not found</div>;
 
   const calcScoresAverage = (scores: Score[]): number => {
-    console.log("scores", scores);
     return (
       scores.reduce(
         (prev, current) =>
