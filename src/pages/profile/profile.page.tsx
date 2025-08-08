@@ -9,7 +9,7 @@ const cn = bind(styles);
 
 export const ProfilePage = () => {
   const { t } = useTranslation();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   return (
     <div className={cn("profile")}>
       <h2 className={cn("profile__title")}>{t("profile")}</h2>
@@ -39,7 +39,12 @@ export const ProfilePage = () => {
           </div>
         </div>
       </div>
-      <Button iconStart={<LogoutIcon />} label={t("logout")} color="none" />
+      <Button
+        iconStart={<LogoutIcon />}
+        label={t("logout")}
+        color="none"
+        onClick={logout}
+      />
     </div>
   );
 };
