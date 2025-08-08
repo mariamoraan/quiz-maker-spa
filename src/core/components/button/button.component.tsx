@@ -4,11 +4,12 @@ const cn = bind(styles);
 
 interface Props {
   label: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   size?: "full" | "small" | "medium" | "large";
   color?: "light" | "dark";
   iconStart?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = ({
@@ -18,9 +19,11 @@ export const Button = ({
   size = "full",
   color = "light",
   iconStart,
+  type = "button",
 }: Props) => {
   return (
     <button
+      type={type}
       onClick={onClick}
       className={cn("button", className, {
         "button--small": size === "small",

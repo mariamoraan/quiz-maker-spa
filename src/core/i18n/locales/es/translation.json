@@ -1,4 +1,21 @@
 {
   "sign-in-to-quiz-maker": "Sign in to Quiz Maker",
-  "sign-in-with-google": "Sign in with Google"
+  "sign-in-with-google": "Sign in with Google",
+  "home.greeting": "Hi, {{name}}",
+  "home.ready-to-play": "Ready to play?",
+  "new-question-bank": "New Question Bank",
+  "question-banks": "Question Banks",
+  "question-bank-form.add-question": "Add Question",
+  "question-bank-form.question": "Question",
+  "question-bank-form.question-bank": "Question Bank",
+  "question-bank-form.question-bank.name": "Name",
+  "question-bank-form.question-bank.name.placeholder": "Geografía",
+  "question-bank-form.answer": "Answer",
+  "question-bank-form.submit": "Submit",
+  "question-bank-form.question-placeholder": "Ej: ¿Cuál es la capital de Francia?",
+  "question-bank-form.answer-placeholder-a": "París",
+  "question-bank-form.answer-placeholder-b": "Londres",
+  "question-bank-form.answer-placeholder-c": "Berlín",
+  "question-bank-form.answer-placeholder-d": "Madrid",
+  "questions": "Questions"
 }

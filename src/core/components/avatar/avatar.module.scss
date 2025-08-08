@@ -1,0 +1,20 @@
+.avatar {
+  width: 48px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: var(--color-mid-grey);
+  overflow: hidden;
+  &--image {
+    padding: 0;
+    width: 48px;
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

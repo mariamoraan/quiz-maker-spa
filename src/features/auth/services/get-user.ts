@@ -13,6 +13,7 @@ export async function getUser(credentials: FirebaseUser): Promise<User> {
       email: snap.data().email,
       name: snap.data().name,
       createdAt: snap.data().createdAt,
+      imageUrl: snap.data().imageUrl,
     };
   }
 
@@ -21,6 +22,7 @@ export async function getUser(credentials: FirebaseUser): Promise<User> {
     email: credentials.email ?? undefined,
     name: credentials.displayName ?? undefined,
     createdAt: new Date().toISOString(),
+    imageUrl: credentials.photoURL ?? undefined,
   };
 
   await setDoc(userRef, newUser);

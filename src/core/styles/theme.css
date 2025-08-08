@@ -22,11 +22,15 @@
   --color-forest: hsl(118, 89%, 71%);
   --color-amber: hsl(45, 89%, 71%);
   --color-sapphire: hsl(221, 89%, 71%);
-  --color-rose: hsl(347, 89%, 71%);
+  --color-rose: #f9d7d9;
   --color-cyan: hsl(189, 89%, 71%);
   --color-plum: hsl(271, 89%, 71%);
   --color-clay: hsl(29, 89%, 71%);
   --color-teal: hsl(172, 89%, 71%);
   --color-apricot: hsl(43, 89%, 71%);
   --color-slate: hsl(215, 89%, 71%);
+
+  /** Test Colors */
+  --color-success: hsl(137, 47%, 53%);
+  --color-failure: hsl(347, 89%, 71%);
 }
