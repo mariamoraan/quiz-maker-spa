@@ -33,16 +33,19 @@
       font-weight: 500;
     }
     &__score {
+      padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      border: 1px solid var(--color-dark-grey);
+      border-radius: 8px;
       &__title {
         font-weight: 500;
         font-size: small;
       }
       &__score {
         font-size: 32px;
-        color: #1e05a2;
+        color: var(--color-primary);
       }
     }
   }

@@ -15,6 +15,7 @@ import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
 import type { Score } from "@/features/quiz/domain/score";
 import { getAllScores } from "@/features/quiz/services/get-all-scores";
+import { getMessageBasedOnScore } from "../utils/get-message-based-on-score";
 
 const cn = bind(styles);
 
@@ -96,22 +97,25 @@ export const QuestionBankPage = () => {
         {scores?.length ? (
           <div className={cn("question-bank__info__score")}>
             <p className={cn("question-bank__info__score__title")}>
-              {t("average-score")}
+              {t(getMessageBasedOnScore(calcScoresAverage(scores), 1))}
+            </p>
+            <p className={cn("question-bank__info__score__title")}>
+              {t("your-average-score")}
             </p>
             <p className={cn("question-bank__info__score__score")}>
-              {calcScoresAverage(scores)}/100
+              {calcScoresAverage(scores)}%
             </p>
           </div>
         ) : null}
-        <p className={cn("question-bank__info__subtitle")}>
-          {questionBank.questions.length} questions
-        </p>
         <Button
           label={t("start-quiz")}
           iconStart={<PlayIcon size={12} />}
           size="medium"
           onClick={handleGenerateQuiz}
         />
+        <p className={cn("question-bank__info__subtitle")}>
+          {questionBank.questions.length} questions
+        </p>
       </div>
       <ul className={cn("question-bank__questions-list")}>
         {questionBank.questions.map((question) => (

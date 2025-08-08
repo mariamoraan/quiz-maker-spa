@@ -13,6 +13,7 @@ import { getQuestionBank } from "@/features/question-banks/services/get-question
 import type { Score } from "@/features/quiz/domain/score";
 import { generateUUID } from "@/core/utils/generate-uuid";
 import { postScore } from "@/features/quiz/services/post-score";
+import { getMessageBasedOnScore } from "../utils/get-message-based-on-score";
 const cn = bind(styles);
 
 export const QuizPage = () => {
@@ -74,14 +75,6 @@ export const QuizPage = () => {
     return correctAnswers.length;
   };
 
-  const getMessageBasedOnScore = (score: number) => {
-    if (!quiz?.questions.length) return "Error";
-    if (score / quiz.questions.length >= 0.8) {
-      return t("quiz.congratulations");
-    }
-    return t("quiz.tryAgain");
-  };
-
   // TODO: Add skeleton
   if (isLoading) return <div>Loading...</div>;
   // TODO: Add error message
@@ -98,7 +91,7 @@ export const QuizPage = () => {
             {calcScore()}/{quiz.questions.length}
           </p>
           <p className={cn("quiz-page-result__info__message")}>
-            {t(getMessageBasedOnScore(calcScore()))}
+            {t(getMessageBasedOnScore(calcScore(), quiz.questions.length))}
           </p>
         </div>
         <Link to={ROUTES.HOME} className={cn("quiz-page-result__footer__link")}>
