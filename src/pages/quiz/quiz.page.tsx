@@ -97,6 +97,7 @@ export const QuizPage = () => {
         <Link
           to={ROUTES.QUESTION_BANK(id ?? "")}
           className={cn("quiz-page-result__footer__link")}
+          replace
         >
           {t("back-to-home")}
         </Link>
