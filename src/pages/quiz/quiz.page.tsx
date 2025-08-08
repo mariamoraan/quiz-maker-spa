@@ -94,7 +94,10 @@ export const QuizPage = () => {
             {t(getMessageBasedOnScore(calcScore(), quiz.questions.length))}
           </p>
         </div>
-        <Link to={ROUTES.HOME} className={cn("quiz-page-result__footer__link")}>
+        <Link
+          to={ROUTES.QUESTION_BANK(id ?? "")}
+          className={cn("quiz-page-result__footer__link")}
+        >
           {t("back-to-home")}
         </Link>
       </div>
