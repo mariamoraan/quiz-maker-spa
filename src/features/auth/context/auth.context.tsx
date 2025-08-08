@@ -7,7 +7,7 @@ import type { User } from "../domain/user";
 type AuthContextType = {
   user: User | null;
   loading: boolean;
-  loginWithGoogle: () => Promise<void>;
+  loginWithGoogle: () => void;
   logout: () => Promise<void>;
 };
 
@@ -36,8 +36,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return unsubscribe;
   }, []);
 
-  const loginWithGoogle = async () => {
-    await signInWithPopup(auth, googleAuthProvider);
+  const loginWithGoogle = () => {
+    signInWithPopup(auth, googleAuthProvider);
   };
 
   const logout = async () => {
