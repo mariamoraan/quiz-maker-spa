@@ -1,5 +1,5 @@
 .button {
-  padding: 8px 16px;
+  padding: 12px 16px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,12 +26,12 @@
     max-width: max-content;
   }
   &--medium {
-    padding: 8px 16px;
+    padding: 12px 16px;
     gap: 12px;
     max-width: max-content;
   }
   &--large {
-    padding: 10px 20px;
+    padding: 12px 24px;
     gap: 12px;
     max-width: max-content;
   }
