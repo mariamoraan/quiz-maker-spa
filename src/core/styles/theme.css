@@ -5,8 +5,9 @@
   --color-light-grey: #f3f4f6;
   --color-mid-grey: #d1d5db;
   --color-dark-grey: gray;
-  --color-primary: #650fce;
-
+  --color-primary: #f25a72;
+  --color-primary-light: hsl(351, 85%, 85%);
+  --color-primary-extra-light: hsl(351, 85%, 95%);
   /* Sidebar */
   --color-sidebar-bg: #e5e7eb;
   --color-sidebar-text: #374151;
