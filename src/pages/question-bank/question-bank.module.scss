@@ -53,6 +53,26 @@
         color: var(--color-primary);
       }
     }
+    &__start-quiz-button {
+      padding: 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      background: var(--color-primary);
+      color: var(--color-background);
+      border-radius: 12px;
+      &__title {
+        font-size: larger;
+        font-weight: 600;
+      }
+      &__subtitle {
+        font-size: small;
+        font-weight: 400;
+      }
+    }
   }
   &__questions-list {
     display: flex;

@@ -1,4 +1,4 @@
-import { GoBackArrowIcon, PlayIcon } from "@/core/icons";
+import { ForwardIcon, GoBackArrowIcon, PlayIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
@@ -107,12 +107,21 @@ export const QuestionBankPage = () => {
             </p>
           </div>
         ) : null}
-        <Button
-          label={t("start-quiz")}
-          iconStart={<PlayIcon size={12} />}
-          size="medium"
-          onClick={handleGenerateQuiz}
-        />
+        <div className={cn("question-bank__info__start-quiz-button")}>
+          <p className={cn("question-bank__info__start-quiz-button__title")}>
+            {t("play-and-win")}
+          </p>
+          <p className={cn("question-bank__info__start-quiz-button__subtitle")}>
+            {t("start-a-quiz-now")}
+          </p>
+          <Button
+            iconEnd={<ForwardIcon />}
+            label={t("start-quiz")}
+            size="small"
+            onClick={handleGenerateQuiz}
+          />
+        </div>
+
         <p className={cn("question-bank__info__subtitle")}>
           {questionBank.questions.length} questions
         </p>

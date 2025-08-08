@@ -9,6 +9,7 @@ interface Props {
   size?: "full" | "small" | "medium" | "large";
   color?: "light" | "dark";
   iconStart?: React.ReactNode;
+  iconEnd?: React.ReactNode;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
 }
@@ -20,6 +21,7 @@ export const Button = ({
   size = "full",
   color = "light",
   iconStart,
+  iconEnd,
   type = "button",
   disabled = false,
 }: Props) => {
@@ -38,6 +40,7 @@ export const Button = ({
     >
       {iconStart ? iconStart : null}
       {label}
+      {iconEnd ? iconEnd : null}
     </button>
   );
 };
