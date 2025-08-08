@@ -6,10 +6,10 @@ export const getMessageBasedOnScore = (
   if (score / questionsNumber >= 0.9) {
     return "quiz.results.congratulations";
   }
-  if (score / questionsNumber >= 0.89) {
+  if (score / questionsNumber >= 0.7) {
     return "quiz.results.very-good";
   }
-  if (score / questionsNumber >= 0.69) {
+  if (score / questionsNumber >= 0.5) {
     return "quiz.results.good";
   }
   return "quiz.results.not-worry";

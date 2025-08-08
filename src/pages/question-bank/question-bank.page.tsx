@@ -97,9 +97,9 @@ export const QuestionBankPage = () => {
         {scores?.length ? (
           <div className={cn("question-bank__info__score")}>
             <p className={cn("question-bank__info__score__title")}>
-              {t(getMessageBasedOnScore(calcScoresAverage(scores), 1))}
+              {t(getMessageBasedOnScore(calcScoresAverage(scores), 100))}
             </p>
-            <p className={cn("question-bank__info__score__title")}>
+            <p className={cn("question-bank__info__score__subtitle")}>
               {t("your-average-score")}
             </p>
             <p className={cn("question-bank__info__score__score")}>
