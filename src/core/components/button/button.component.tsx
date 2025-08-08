@@ -10,6 +10,7 @@ interface Props {
   color?: "light" | "dark";
   iconStart?: React.ReactNode;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export const Button = ({
@@ -20,11 +21,13 @@ export const Button = ({
   color = "light",
   iconStart,
   type = "button",
+  disabled = false,
 }: Props) => {
   return (
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={cn("button", className, {
         "button--small": size === "small",
         "button--medium": size === "medium",

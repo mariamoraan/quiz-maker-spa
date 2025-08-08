@@ -1,4 +1,4 @@
-import { CheckIcon, GoBackArrowIcon } from "@/core/icons";
+import { CheckIcon, GoBackArrowIcon, PlayIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
@@ -8,9 +8,12 @@ import type {
 } from "@/features/question-banks/domain/question-bank";
 import { getQuestionBank } from "@/features/question-banks/services/get-question-bank";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./question-bank.module.scss";
 import { bind } from "@/core/styles/bind";
+import { Button } from "@/core/components/button/button.component";
+import { useTranslation } from "react-i18next";
+import { generateQuiz } from "@/features/quiz/utils/generate-quiz";
 const cn = bind(styles);
 
 const getInitialQuestionBank = (
@@ -27,7 +30,9 @@ const getInitialQuestionBank = (
 };
 
 export const QuestionBankPage = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const { questionBanks } = useQuestionBanks();
   const [questionBank, setQuestionBank] = useState<QuestionBank | null>(
@@ -46,6 +51,11 @@ export const QuestionBankPage = () => {
     if (!user || !id || !questionBank?.userId) return;
     setup(id);
   }, [user, id, questionBank?.userId]);
+
+  const handleGenerateQuiz = async () => {
+    if (!questionBank || !user?.uid) return;
+    navigate(ROUTES.QUIZ(questionBank.id));
+  };
 
   // TODO: add skeleton
   if (isLoading) return <div>Loading...</div>;
@@ -69,6 +79,12 @@ export const QuestionBankPage = () => {
         <p className={cn("question-bank__info__subtitle")}>
           {questionBank.questions.length} questions
         </p>
+        <Button
+          label={t("start-quiz")}
+          iconStart={<PlayIcon size={12} />}
+          size="medium"
+          onClick={handleGenerateQuiz}
+        />
       </div>
       <ul className={cn("question-bank__questions-list")}>
         {questionBank.questions.map((question) => (
@@ -79,21 +95,6 @@ export const QuestionBankPage = () => {
             <div className={cn("question-bank__questions-list__li__question")}>
               <p> {question.text}</p>
             </div>
-            <ul className={cn("question-bank__questions-list__li__answer")}>
-              {question.options
-                .filter((option) => option.isCorrect)
-                .map((correctOption) => (
-                  <li
-                    key={correctOption.id}
-                    className={cn(
-                      "question-bank__questions-list__li__answer__li"
-                    )}
-                  >
-                    <CheckIcon color="var(--color-success)" />
-                    <p>{correctOption.text}</p>
-                  </li>
-                ))}
-            </ul>
           </li>
         ))}
       </ul>

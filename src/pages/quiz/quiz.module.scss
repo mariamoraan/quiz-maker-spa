@@ -1,0 +1,114 @@
+.quiz-page {
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  &__quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+    overflow-y: auto;
+    &__header {
+      &__progress-indicator-number {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        &__label {
+          font-size: small;
+          font-weight: 500;
+        }
+        &__info {
+          font-size: larger;
+        }
+      }
+    }
+    &__test {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      &__question {
+        padding: 24px;
+        font-weight: 800;
+        background: #fcdef8;
+        border-radius: 12px;
+        border: 2px solid #f5bff1;
+      }
+      &__options-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        &__li {
+          &__button {
+            padding: 12px 24px;
+            width: 100%;
+            background: white;
+            border: none;
+            &--selected {
+              background: #e3e0f3;
+              border: 1px solid #3e3579;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: 500;
+      background: #2200a6;
+      color: white;
+    }
+  }
+}
+
+.quiz-page-result {
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    &__score-title {
+      font-size: medium;
+    }
+    &__score {
+      font-weight: 800;
+      font-size: 32px;
+      color: #1e05a2;
+    }
+    &__message {
+      font-weight: 800;
+      font-size: 32px;
+      color: #1e05a2;
+    }
+  }
+  &__footer {
+    &__link {
+      padding: 8px 16px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: 500;
+      background: #2200a6;
+      color: white;
+      border-radius: 12px;
+    }
+  }
+}

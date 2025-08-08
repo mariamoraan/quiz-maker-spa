@@ -17,5 +17,11 @@
   "question-bank-form.answer-placeholder-b": "Londres",
   "question-bank-form.answer-placeholder-c": "Berlín",
   "question-bank-form.answer-placeholder-d": "Madrid",
-  "questions": "Questions"
+  "questions": "Questions",
+  "start-quiz": "Start Quiz",
+  "next": "Next",
+  "quiz.congratulations": "Congratulations!",
+  "quiz.tryAgain": "You can do it better !.",
+  "quiz.your-score": "Your score",
+  "back-to-home": "Back to Home"
 }

@@ -7,6 +7,7 @@ import { GoPlus } from "react-icons/go";
 import { FaCheck } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowBack } from "react-icons/io";
+import { FaPlay } from "react-icons/fa";
 
 export {
   FcGoogle as GoogleIcon,
@@ -18,4 +19,5 @@ export {
   FaCheck as CheckIcon,
   AiOutlineClose as CrossIcon,
   IoIosArrowBack as GoBackArrowIcon,
+  FaPlay as PlayIcon,
 };

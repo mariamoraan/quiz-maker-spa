@@ -5,6 +5,7 @@ import { ProtectedRoute } from "./protected-routes";
 import { AuthRoutes } from "./auth-routes";
 import { NewQuestionBankPage } from "@/pages/new-question-bank/new-question-bank.page";
 import { QuestionBankPage } from "@/pages/question-bank/question-bank.page";
+import { QuizPage } from "@/pages/quiz/quiz.page";
 
 export const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRouter = () => {
           <Route index element={<HomePage />} />
           <Route path="/question-banks/:id" element={<QuestionBankPage />} />
           <Route path="/question-banks/new" element={<NewQuestionBankPage />} />
+          <Route path="/quiz/:id" element={<QuizPage />} />
         </Route>
         <Route element={<AuthRoutes />}>
           <Route path="login" element={<LoginPage />} />

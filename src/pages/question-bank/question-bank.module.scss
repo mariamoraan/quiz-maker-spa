@@ -17,6 +17,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 8px;
     }
   }
   &__info {
@@ -42,9 +43,10 @@
       gap: 12px;
 
       &__question {
-        padding: 12px;
+        padding: 24px;
         border: 1px solid var(--color-dark-grey);
         border-radius: 12px;
+        background: white;
       }
       &__answer {
         margin-left: 24px;
