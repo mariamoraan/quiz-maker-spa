@@ -4,7 +4,7 @@ import styles from "./home.module.scss";
 import { bind } from "@/core/styles/bind";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { PlusIcon } from "@/core/icons";
+import { ForwardIcon, PlusIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
 const cn = bind(styles);
@@ -28,7 +28,6 @@ export const HomePage = () => {
         </p>
       </div>
       <div className={cn("section")}>
-        <h2 className={cn("section__title")}>{t("question-banks")}</h2>
         <ul className={cn("question-banks-list")}>
           {questionBanks.map((questionBank) => (
             <li key={questionBank.id}>
@@ -42,6 +41,7 @@ export const HomePage = () => {
                 <p className={cn("question-banks-list__li__count")}>
                   {questionBank.questionsNumber} preguntas
                 </p>
+                <ForwardIcon className={cn("question-banks-list__li__icon")} />
               </Link>
             </li>
           ))}
