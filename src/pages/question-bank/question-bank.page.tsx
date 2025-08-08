@@ -1,4 +1,4 @@
-import { CheckIcon, GoBackArrowIcon, PlayIcon } from "@/core/icons";
+import { GoBackArrowIcon, PlayIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
