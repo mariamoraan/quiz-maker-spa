@@ -119,6 +119,7 @@ export const QuestionBankPage = () => {
             label={t("start-quiz")}
             size="small"
             onClick={handleGenerateQuiz}
+            className={cn("question-bank__info__start-quiz-button__button")}
           />
         </div>
 
