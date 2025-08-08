@@ -28,5 +28,11 @@
   "back-to-home": "Volver al Inicio",
   "your-average-score": "Tu puntuación media",
   "play-and-win": "Juega y Gana",
-  "start-a-quiz-now": "Comienza un quiz ahora"
+  "start-a-quiz-now": "Comienza un quiz ahora",
+  "add": "Añadir",
+  "cancel": "Cancelar",
+  "add-a-question": "Añade una pregunta",
+  "bank-config": "Configuración",
+  "question-bank-form.create-question-bank": "Crear Banco de Preguntas",
+  "save-config": "Guardar Configuración"
 }

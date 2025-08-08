@@ -21,8 +21,13 @@
     background: var(--color-text);
     color: var(--color-background);
   }
+  &--primary {
+    background: var(--color-primary);
+    color: var(--color-background);
+    border: 1px solid var(--color-primary);
+  }
   &--small {
-    padding: 6px 12px;
+    padding: 8px 24px;
     max-width: max-content;
   }
   &--medium {
@@ -34,5 +39,9 @@
     padding: 12px 24px;
     gap: 12px;
     max-width: max-content;
+  }
+  &--center {
+    justify-content: center;
+    align-items: center;
   }
 }

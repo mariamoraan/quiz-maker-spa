@@ -1,0 +1,31 @@
+.question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  &__answer {
+    position: relative;
+    margin-left: 8px;
+    display: grid;
+    grid-template-columns: 1fr max-content max-content;
+    align-items: center;
+    gap: 8px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -8px;
+      margin: auto;
+      width: 2px;
+      height: 60%;
+      background: var(--color-dark-grey);
+    }
+  }
+  &__buttons {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+}

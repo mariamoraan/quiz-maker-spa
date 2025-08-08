@@ -7,11 +7,12 @@ interface Props {
   onClick?: () => void;
   className?: string;
   size?: "full" | "small" | "medium" | "large";
-  color?: "light" | "dark";
+  color?: "light" | "dark" | "primary";
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  center?: boolean;
 }
 
 export const Button = ({
@@ -24,6 +25,7 @@ export const Button = ({
   iconEnd,
   type = "button",
   disabled = false,
+  center = false,
 }: Props) => {
   return (
     <button
@@ -36,6 +38,8 @@ export const Button = ({
         "button--large": size === "large",
         "button--light": color === "light",
         "button--dark": color === "dark",
+        "button--primary": color === "primary",
+        "button--center": center,
       })}
     >
       {iconStart ? iconStart : null}

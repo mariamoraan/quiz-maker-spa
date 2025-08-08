@@ -28,5 +28,11 @@
   "back-to-home": "Go Back Home",
   "your-average-score": "Your average performance score",
   "play-and-win": "Play and Win",
-  "start-a-quiz-now": "Start a quiz now"
+  "start-a-quiz-now": "Start a quiz now",
+  "add": "Add",
+  "cancel": "Cancel",
+  "add-a-question": "Add a Question",
+  "bank-config": "Bank Configuration",
+  "question-bank-form.create-question-bank": "Create Question Bank",
+  "save-config": "Save Configuration"
 }
