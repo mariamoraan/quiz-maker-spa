@@ -73,7 +73,7 @@ export const QuestionBankPage = () => {
   if (!questionBank) return <div>Question bank not found</div>;
 
   const calcScoresAverage = (scores: Score[]): number => {
-    return (
+    return Math.round(
       scores.reduce(
         (prev, current) =>
           prev + (current.score * 100) / Object.keys(current.answers).length,
