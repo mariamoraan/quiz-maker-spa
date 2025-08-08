@@ -123,7 +123,7 @@ export const QuestionBankPage = () => {
         </div>
 
         <p className={cn("question-bank__info__subtitle")}>
-          {questionBank.questions.length} questions
+          {questionBank.questions.length} {t("questions")}
         </p>
       </div>
       <ul className={cn("question-bank__questions-list")}>
