@@ -45,14 +45,14 @@ export const HomePage = () => {
               </Link>
             </li>
           ))}
-          <Link
-            to={ROUTES.NEW_QUESTION_BANK}
-            className={cn("question-banks-list__new-link")}
-          >
-            <PlusIcon />
-          </Link>
         </ul>
       </div>
+      <Link
+        to={ROUTES.NEW_QUESTION_BANK}
+        className={cn("question-banks-list__new-link")}
+      >
+        <PlusIcon />
+      </Link>
     </div>
   );
 };
