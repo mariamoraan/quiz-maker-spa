@@ -70,6 +70,7 @@ export const QuestionForm = (props: Props) => {
         field={`question`}
         placeholder={t("question-bank-form.question-placeholder")}
         required
+        defaultValue={defaultValues?.text ?? ""}
       />
       <div className={cn("question-form__answer")}>
         <FormField
@@ -78,16 +79,17 @@ export const QuestionForm = (props: Props) => {
           placeholder={t("question-bank-form.answer-placeholder-a")}
           required
           hideLabel
+          defaultValue={defaultValues?.options[0].text ?? ""}
         />
         <CheckboxField
           field={`answer_correct_a`}
           customVisual={CustomCheckCorrect}
-          defaultValue={true}
+          defaultValue={defaultValues?.options[0].isCorrect ?? true}
         />
         <CheckboxField
           field={`answer_incorrect_a`}
           customVisual={CustomCheckIncorrect}
-          defaultValue={false}
+          defaultValue={!defaultValues?.options[0].isCorrect}
         />
       </div>
       <div className={cn("question-form__answer")}>
@@ -97,16 +99,17 @@ export const QuestionForm = (props: Props) => {
           placeholder={t("question-bank-form.answer-placeholder-b")}
           required
           hideLabel
+          defaultValue={defaultValues?.options[1].text ?? ""}
         />
         <CheckboxField
           field={`answer_correct_b`}
           customVisual={CustomCheckCorrect}
-          defaultValue={false}
+          defaultValue={defaultValues?.options[1].isCorrect ?? false}
         />
         <CheckboxField
           field={`answer_incorrect_b`}
           customVisual={CustomCheckIncorrect}
-          defaultValue={true}
+          defaultValue={!defaultValues?.options[1].isCorrect}
         />
       </div>
       <div className={cn("question-form__answer")}>
@@ -116,16 +119,17 @@ export const QuestionForm = (props: Props) => {
           placeholder={t("question-bank-form.answer-placeholder-c")}
           required
           hideLabel
+          defaultValue={defaultValues?.options[2].text ?? ""}
         />
         <CheckboxField
           field={`answer_correct_c`}
           customVisual={CustomCheckCorrect}
-          defaultValue={false}
+          defaultValue={defaultValues?.options[2].isCorrect ?? false}
         />
         <CheckboxField
           field={`answer_incorrect_c`}
           customVisual={CustomCheckIncorrect}
-          defaultValue={true}
+          defaultValue={!defaultValues?.options[2].isCorrect}
         />
       </div>
       <div className={cn("question-form__answer")}>
@@ -135,16 +139,17 @@ export const QuestionForm = (props: Props) => {
           placeholder={t("question-bank-form.answer-placeholder-d")}
           required
           hideLabel
+          defaultValue={defaultValues?.options[3].text ?? ""}
         />
         <CheckboxField
           field={`answer_correct_d`}
           customVisual={CustomCheckCorrect}
-          defaultValue={false}
+          defaultValue={defaultValues?.options[3].isCorrect ?? false}
         />
         <CheckboxField
           field={`answer_incorrect_d`}
           customVisual={CustomCheckIncorrect}
-          defaultValue={true}
+          defaultValue={!defaultValues?.options[3].isCorrect}
         />
       </div>
       <div className={cn("question-form__buttons")}>

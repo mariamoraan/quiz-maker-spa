@@ -41,5 +41,6 @@
   "name": "Name",
   "email": "Email",
   "logout": "Logout",
-  "profile.info": "Info"
+  "profile.info": "Info",
+  "question-bank-form.edit-question-bank": "Edit"
 }

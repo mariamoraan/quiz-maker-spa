@@ -16,21 +16,8 @@ import { useTranslation } from "react-i18next";
 import type { Score } from "@/features/quiz/domain/score";
 import { getAllScores } from "@/features/quiz/services/get-all-scores";
 import { getMessageBasedOnScore } from "../../features/quiz/utils/get-message-based-on-score";
-
+import { getInitialQuestionBank } from "@/features/question-banks/utils/get-initial-question-bank";
 const cn = bind(styles);
-
-const getInitialQuestionBank = (
-  questionBanks: QuestionBanksList,
-  id?: string
-): QuestionBank | null => {
-  if (!id) return null;
-  const questionBank = questionBanks.find((item) => item.id === id);
-  if (!questionBank) return null;
-  return {
-    ...questionBank,
-    questions: [],
-  };
-};
 
 export const QuestionBankPage = () => {
   const { t } = useTranslation();
@@ -92,6 +79,7 @@ export const QuestionBankPage = () => {
         <h1 className={cn("question-bank__header__title")}>
           {questionBank.name}
         </h1>
+        <Link to={ROUTES.EDIT_QUESTION_BANK(questionBank.id)}>Editar</Link>
       </div>
       <div className={cn("question-bank__info")}>
         {scores?.length ? (
