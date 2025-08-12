@@ -60,11 +60,13 @@ export const QuestionBankPage = () => {
 
   const calcScoresAverage = (scores: Score[]): number => {
     return Math.round(
-      scores.reduce(
-        (prev, current) =>
-          prev + (current.score * 100) / Object.keys(current.answers).length,
-        0
-      ) / scores.length
+      scores
+        .slice(0, 20)
+        .reduce(
+          (prev, current) =>
+            prev + (current.score * 100) / Object.keys(current.answers).length,
+          0
+        ) / scores.length
     );
   };
 

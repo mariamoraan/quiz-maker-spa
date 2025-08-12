@@ -8,6 +8,7 @@ import { Form } from "@/core/components/form/form/form.component";
 import { Button } from "@/core/components/button/button.component";
 import type { Question } from "../../domain/question";
 import type { FieldValues } from "react-hook-form";
+import { generateUUID } from "@/core/utils/generate-uuid";
 const cn = bind(styles);
 
 const CustomCheckCorrect = {
@@ -32,7 +33,7 @@ export const QuestionForm = (props: Props) => {
   const { t } = useTranslation();
   const handleSubmit = async (data: FieldValues) => {
     const question: Question = {
-      id: defaultValues?.id || "",
+      id: defaultValues?.id ?? generateUUID(),
       text: data.question,
       options: [
         {

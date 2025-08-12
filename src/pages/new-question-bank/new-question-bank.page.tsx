@@ -8,12 +8,12 @@ import { useAuth } from "@/features/auth/context/auth.context";
 import { Link, useNavigate } from "react-router-dom";
 import type { QuestionBank } from "@/features/question-banks/domain/question-bank";
 import { generateUUID } from "@/core/utils/generate-uuid";
-import { postQuestionBank } from "@/features/question-banks/services/post-question-bank";
 import { ROUTES } from "@/core/routes/routes";
 import { GoBackArrowIcon } from "@/core/icons";
 import styles from "./new-question-bank.module.scss";
 import { bind } from "@/core/styles/bind";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
+import { postQuestionBank } from "@/features/question-banks/services/post-question-bank";
 const cn = bind(styles);
 
 export const NewQuestionBankPage = () => {

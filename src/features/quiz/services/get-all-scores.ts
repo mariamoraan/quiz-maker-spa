@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "@/core/firebase";
 import type { Score } from "../domain/score";
 
@@ -12,7 +12,8 @@ export const getAllScores = async ({
   const q = query(
     collection(db, "scores"),
     where("userId", "==", userId),
-    where("bankId", "==", bankId)
+    where("bankId", "==", bankId),
+    orderBy("date", "desc")
   );
 
   const snapshot = await getDocs(q);
