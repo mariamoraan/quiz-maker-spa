@@ -12,6 +12,7 @@
     display: flex;
     gap: 12px;
     color: var(--color-text);
+    text-align: start;
     &__icon {
       transform: rotate(90deg);
       &--active {
