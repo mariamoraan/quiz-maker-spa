@@ -14,6 +14,7 @@ import type { Score } from "@/features/quiz/domain/score";
 import { getAllScores } from "@/features/quiz/services/get-all-scores";
 import { getMessageBasedOnScore } from "../../features/quiz/utils/get-message-based-on-score";
 import { getInitialQuestionBank } from "@/features/question-banks/utils/get-initial-question-bank";
+import { QuestionCard } from "@/features/question-banks/components/question-card/question-card.component";
 const cn = bind(styles);
 
 export const QuestionBankPage = () => {
@@ -118,9 +119,7 @@ export const QuestionBankPage = () => {
             className={cn("question-bank__questions-list__li")}
             key={question.id}
           >
-            <div className={cn("question-bank__questions-list__li__question")}>
-              <p> {question.text}</p>
-            </div>
+            <QuestionCard question={question} />
           </li>
         ))}
       </ul>

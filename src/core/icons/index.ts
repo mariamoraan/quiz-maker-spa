@@ -12,6 +12,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CiSaveUp2 } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
+import { IoMdArrowDropup } from "react-icons/io";
 
 export {
   FcGoogle as GoogleIcon,
@@ -28,4 +29,5 @@ export {
   CiSaveUp2 as SaveIcon,
   MdAlternateEmail as EmailIcon,
   MdOutlineLogout as LogoutIcon,
+  IoMdArrowDropup as TriangleIcon,
 };

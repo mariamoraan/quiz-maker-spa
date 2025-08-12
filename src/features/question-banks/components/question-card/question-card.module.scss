@@ -1,0 +1,26 @@
+.question-card {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid var(--color-dark-grey);
+  border-radius: 12px;
+  background: white;
+  transition: 500ms ease;
+  interpolate-size: allow-keywords;
+  &__question {
+    display: flex;
+    gap: 12px;
+    &__icon {
+      transform: rotate(90deg);
+      &--active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__answer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
