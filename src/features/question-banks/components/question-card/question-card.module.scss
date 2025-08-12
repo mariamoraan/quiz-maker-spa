@@ -2,7 +2,7 @@
   padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   border: 1px solid var(--color-dark-grey);
   border-radius: 12px;
   background: white;
@@ -19,6 +19,7 @@
     }
   }
   &__answer {
+    margin-left: 24px;
     display: flex;
     align-items: center;
     gap: 8px;
