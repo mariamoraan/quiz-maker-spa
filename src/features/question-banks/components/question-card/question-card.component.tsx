@@ -19,21 +19,20 @@ export const QuestionCard = (props: Props) => {
 
   return (
     <div className={cn("question-card")}>
-      <p className={cn("question-card__question")}>
-        <Button
-          color="none"
-          label={
-            <TriangleIcon
-              size={16}
-              className={cn("question-card__question__icon", {
-                "question-card__question__icon--active": isAnswerVisible,
-              })}
-            />
-          }
-          onClick={toggleAnswerVisibility}
-        />
-        {question.text}
-      </p>
+      <Button
+        color="none"
+        label={question.text}
+        iconStart={
+          <TriangleIcon
+            size={16}
+            className={cn("question-card__question__icon", {
+              "question-card__question__icon--active": isAnswerVisible,
+            })}
+          />
+        }
+        onClick={toggleAnswerVisibility}
+        className={cn("question-card__question")}
+      />
       {isAnswerVisible ? (
         <p className={cn("question-card__answer")}>
           <CheckIcon color="var(--color-success)" />
