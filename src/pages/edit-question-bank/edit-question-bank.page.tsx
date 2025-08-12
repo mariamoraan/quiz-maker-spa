@@ -89,15 +89,15 @@ export const EditQuestionBankPage = () => {
       <div className={cn("edit-question-bank__content")}>
         <BankConfigForm name={name} setName={setName} />
         <QuestionsList questions={questions} setQuestions={setQuestions} />
-        <Button
-          onClick={editBank}
-          label={t("question-bank-form.edit-question-bank")}
-          color="primary"
-          disabled={!name || questions.length === 0}
-          center
-          className={cn("new-question-bank-page__button")}
-        />
       </div>
+      <Button
+        onClick={editBank}
+        label={t("question-bank-form.edit-question-bank")}
+        color="primary"
+        disabled={!name || questions.length === 0}
+        center
+        className={cn("new-question-bank-page__button")}
+      />
     </div>
   );
 };
