@@ -39,7 +39,6 @@ export const EditQuestionBankPage = () => {
       const resBank = await getQuestionBank(bankId);
       setQuestions(resBank?.questions ?? []);
       setQuestionBank(resBank);
-      console.log("resBank", resBank);
       setIsLoading(false);
     };
 
