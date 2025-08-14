@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# Quiz Maker SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Quiz Maker SPA is a modern, single-page application for creating, managing, and taking quizzes. Built with React, TypeScript, and Vite, it provides a user-friendly interface for both quiz creators and participants. The app supports authentication, question bank management, quiz generation, scoring, and internationalization.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**: Sign in with Google to access personalized features.
+- **Question Bank Management**: Create, edit, and manage question banks for quizzes.
+- **Quiz Generation**: Generate quizzes dynamically from question banks.
+- **Quiz Participation**: Take quizzes, answer questions, and receive instant feedback.
+- **Score Tracking**: Scores are calculated and stored for each quiz attempt.
+- **Internationalization (i18n)**: Supports multiple languages (e.g., English, Spanish).
+- **Responsive UI**: Clean, modern, and mobile-friendly interface.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Clone the repository:**
+  ```sh
+  git clone https://github.com/mariamoraan/quiz-maker-spa.git
+  cd quiz-maker-spa
+  ```
+2. **Install dependencies:**
+  ```sh
+  npm install
+  # or
+  yarn install
+  ```
+3. **Configure Firebase:**
+  - Update the Firebase configuration in `src/core/firebase/index.ts` with your project credentials.
+
+4. **Run the development server:**
+  ```sh
+  npm run dev
+  # or
+  yarn dev
+  ```
+  The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+### Build for Production
+
+```sh
+npm run build
+# or
+yarn build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Linting
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run lint
+# or
+yarn lint
 ```
+
+## License
+
+This project is licensed under the MIT License.
