@@ -42,5 +42,7 @@
   "email": "Email",
   "logout": "Cerrar Sesión",
   "profile.info": "Info",
-  "question-bank-form.edit-question-bank": "Editar"
+  "question-bank-form.edit-question-bank": "Editar",
+  "quiz.your-answer": "Tu Respuesta: {{answer}}",
+  "quiz.no-answer": "Sin Respuesta"
 }

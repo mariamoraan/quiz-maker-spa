@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./quiz.module.scss";
 import { bind } from "@/core/styles/bind";
-import { GoBackArrowIcon } from "@/core/icons";
+import { CheckIcon, CrossIcon, GoBackArrowIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
@@ -93,21 +93,28 @@ export const QuizPage = () => {
           <p className={cn("quiz-page-result__info__message")}>
             {t(getMessageBasedOnScore(calcScore(), quiz.questions.length))}
           </p>
-        </div>
-        <ul>
-          {quiz.questions.map((question) => (
-            <li key={question.id}>
-              {question.text} -{" "}
-              {answers[question.id]
+           <ul className={cn("quiz-page-result__info__answers-list")}>
+            {quiz.questions.map((question) => (
+              <li className={cn("quiz-page-result__info__answers-list__li")} key={question.id}>
+                <span className={cn("quiz-page-result__info__answers-list__li__icon")}>
+                  {question.options.find(
+                    (option) => option.id === answers[question.id]
+                  )?.isCorrect ? <CheckIcon color="var(--color-success)" /> : <CrossIcon color="var(--color-failure)" />}
+                </span>
+                <p className={cn("quiz-page-result__info__answers-list__li__question")}>{question.text}</p>
+                <p className={cn("quiz-page-result__info__answers-list__li__answer")}>{answers[question.id]
                 ? t("quiz.your-answer", {
                     answer: question.options.find(
                       (option) => option.id === answers[question.id]
                     )?.text,
                   })
                 : t("quiz.no-answer")}
-            </li>
-          ))}
-        </ul>
+                </p>
+                
+              </li>
+            ))}
+          </ul>
+        </div>
         <Link
           to={ROUTES.QUESTION_BANK(id ?? "")}
           className={cn("quiz-page-result__footer__link")}

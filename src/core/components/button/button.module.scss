@@ -8,6 +8,9 @@
   border: none;
   outline: none;
   transition: 200ms ease-in-out;
+  &:hover {
+    cursor: pointer;
+  }
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
