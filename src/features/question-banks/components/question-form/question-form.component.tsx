@@ -90,7 +90,7 @@ export const QuestionForm = (props: Props) => {
         <CheckboxField
           field={`answer_incorrect_a`}
           customVisual={CustomCheckIncorrect}
-          defaultValue={!defaultValues?.options[0].isCorrect}
+          defaultValue={defaultValues?.options[0].isCorrect === false}
         />
       </div>
       <div className={cn("question-form__answer")}>
