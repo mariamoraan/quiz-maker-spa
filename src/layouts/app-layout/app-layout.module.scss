@@ -21,3 +21,14 @@
     opacity: 1;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .app-layout {
+    flex-direction: row-reverse;
+    &__main {
+      margin-bottom: 0;
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}

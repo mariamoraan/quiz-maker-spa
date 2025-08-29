@@ -38,14 +38,14 @@ export const QuizPage = () => {
     setup(user.uid, id);
   }, [id]);
 
-  useEffect(() => {
+  const nextQuestion = () => {
+    const newQuestionIndex = currentQuestionIndex + 1;
+    setCurrentQuestionIndex(newQuestionIndex);
     if (!quiz?.questions.length) return;
-    if (currentQuestionIndex > quiz.questions.length - 1) {
+    if (newQuestionIndex > quiz.questions.length - 1) {
       handleScore();
     }
-  }, [currentQuestionIndex]);
-
-  const nextQuestion = () => setCurrentQuestionIndex((prev) => prev + 1);
+  }
   const selectOption = (questionId: string, optionId: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: optionId }));
   };
@@ -94,6 +94,20 @@ export const QuizPage = () => {
             {t(getMessageBasedOnScore(calcScore(), quiz.questions.length))}
           </p>
         </div>
+        <ul>
+          {quiz.questions.map((question) => (
+            <li key={question.id}>
+              {question.text} -{" "}
+              {answers[question.id]
+                ? t("quiz.your-answer", {
+                    answer: question.options.find(
+                      (option) => option.id === answers[question.id]
+                    )?.text,
+                  })
+                : t("quiz.no-answer")}
+            </li>
+          ))}
+        </ul>
         <Link
           to={ROUTES.QUESTION_BANK(id ?? "")}
           className={cn("quiz-page-result__footer__link")}
