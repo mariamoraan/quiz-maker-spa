@@ -37,7 +37,7 @@
   "save-config": "Guardar Configuración",
   "profile": "Perfil",
   "profile.greeting": "Hola, {{name}}",
-  "profile.view-profile": "Ver Perfil",
+  "profile.user-type.basic": "Basic",
   "name": "Nombre",
   "email": "Email",
   "logout": "Cerrar Sesión",

@@ -105,7 +105,7 @@ export const QuestionBankPage = () => {
           <Button
             iconEnd={<ForwardIcon />}
             label={t("start-quiz")}
-            size="small"
+            size="medium"
             onClick={handleGenerateQuiz}
             className={cn("question-bank__info__start-quiz-button__button")}
           />

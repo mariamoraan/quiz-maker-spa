@@ -21,7 +21,7 @@ export const ProfilePage = () => {
           {t("profile.greeting", { name: user?.name?.split(" ").at(0) })}
         </p>
         <p className={cn("profile__employee-card__subtitle")}>
-          {t("profile.view-profile")}
+          {t("profile.user-type.basic")}
         </p>
       </div>
       <div className={cn("profile__section")}>
