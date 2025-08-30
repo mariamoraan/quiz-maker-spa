@@ -4,4 +4,5 @@ export interface Question {
   id: string;
   text: string;
   options: Option[];
+  isDisabled?: boolean;
 }

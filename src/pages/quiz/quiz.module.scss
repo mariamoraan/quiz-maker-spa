@@ -83,7 +83,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 4;
     &__score-title {
       font-size: small;
       font-weight: 500;
@@ -97,6 +97,8 @@
       border-bottom: 1px solid var(--color-dark-grey);
     }
     &__message {
+      padding-top: 16px;
+      margin-bottom:  12px;
       font-weight: 800;
       font-size: 32px;
       color: var(--color-primary);
@@ -129,10 +131,12 @@
   &__footer {
     &__link {
       padding: 16px 16px;
-      width: 100%;
+      margin-bottom: 24px;
+      width: max-content;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 12px;
       text-align: center;
       font-weight: 500;
       background: var(--color-primary);

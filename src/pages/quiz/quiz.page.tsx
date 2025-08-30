@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./quiz.module.scss";
 import { bind } from "@/core/styles/bind";
-import { CheckIcon, CrossIcon, GoBackArrowIcon } from "@/core/icons";
+import { CheckIcon, CrossIcon, ForwardIcon, GoBackArrowIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
@@ -67,7 +67,7 @@ export const QuizPage = () => {
     if (!quiz) return 0;
     const correctAnswers = Object.entries(answers).filter(
       ([questionId, optionId]) =>
-        quiz.questions
+       quiz.questions
           .find((q) => q.id === questionId)
           ?.options.filter((option) => option.isCorrect)
           .some((correctOption) => correctOption.id === optionId)
@@ -88,11 +88,19 @@ export const QuizPage = () => {
             {t("quiz.your-score")}
           </p>
           <p className={cn("quiz-page-result__info__score")}>
-            {calcScore()}/{quiz.questions.length}
+            {calcScore()}/{ quiz.questions.length}
           </p>
           <p className={cn("quiz-page-result__info__message")}>
-            {t(getMessageBasedOnScore(calcScore(), quiz.questions.length))}
+            {t(getMessageBasedOnScore(calcScore(),  quiz.questions.length))}
           </p>
+           <Link
+          to={ROUTES.QUESTION_BANK(id ?? "")}
+          className={cn("quiz-page-result__footer__link")}
+          replace
+          >
+            {t("back-to-home")}
+            <ForwardIcon />
+          </Link>
            <ul className={cn("quiz-page-result__info__answers-list")}>
             {quiz.questions.map((question) => (
               <li className={cn("quiz-page-result__info__answers-list__li")} key={question.id}>
@@ -115,13 +123,6 @@ export const QuizPage = () => {
             ))}
           </ul>
         </div>
-        <Link
-          to={ROUTES.QUESTION_BANK(id ?? "")}
-          className={cn("quiz-page-result__footer__link")}
-          replace
-        >
-          {t("back-to-home")}
-        </Link>
       </div>
     );
   }

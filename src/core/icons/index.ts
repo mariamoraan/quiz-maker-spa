@@ -13,6 +13,9 @@ import { CiSaveUp2 } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { RiEdit2Line } from "react-icons/ri";
+import { MdOutlineDelete } from "react-icons/md";
 
 export {
   FcGoogle as GoogleIcon,
@@ -30,4 +33,7 @@ export {
   MdAlternateEmail as EmailIcon,
   MdOutlineLogout as LogoutIcon,
   IoMdArrowDropup as TriangleIcon,
+  HiOutlineDotsVertical as DotsVerticalIcon,
+  RiEdit2Line as EditIcon,
+  MdOutlineDelete as DeleteIcon
 };

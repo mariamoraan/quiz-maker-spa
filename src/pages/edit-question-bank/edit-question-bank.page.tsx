@@ -94,7 +94,7 @@ export const EditQuestionBankPage = () => {
         onClick={editBank}
         label={t("question-bank-form.edit-question-bank")}
         color="primary"
-        disabled={!name || questions.length === 0}
+        disabled={!name || questions.length === questionBank.questions.length}
         center
         className={cn("new-question-bank-page__button")}
       />

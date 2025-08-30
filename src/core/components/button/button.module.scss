@@ -10,6 +10,7 @@
   transition: 200ms ease-in-out;
   &:hover {
     cursor: pointer;
+    opacity: 0.6;
   }
   &:disabled {
     opacity: 0.6;
@@ -53,5 +54,11 @@
     background: none;
     border-radius: none;
     color: var(--color-primary);
+  }
+  &--text {
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: none;
   }
 }

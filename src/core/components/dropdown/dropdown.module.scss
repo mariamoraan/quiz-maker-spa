@@ -1,0 +1,29 @@
+.dropdown {
+    position: relative;
+    &__toggle {
+        padding: 4px;
+        color: var(--color-text);
+        &--active {
+            background: var(--color-mid-grey);
+        }
+    }
+    &__content {
+        padding: 12px;
+        position: absolute;
+        top: 32px;
+        left: 0;
+        z-index: 1;
+        width: max-content;
+        max-width: 500px;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        background: white;
+        border-radius: 12px;
+        &--visible {
+            display: flex;
+        }
+
+    }
+}

@@ -34,4 +34,7 @@
   /** Test Colors */
   --color-success: hsl(137, 47%, 53%);
   --color-failure: hsl(347, 89%, 71%);
+
+  /** Action Colors */ 
+  --color-delete: hsl(347, 89%, 71%);
 }

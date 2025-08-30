@@ -1,6 +1,7 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/core/firebase";
 import type { QuestionBanksList } from "../domain/question-bank";
+import { getEnabledQuestions } from "../utils/get-enabled-questions";
 
 export async function getAllQuestionBanks({
   userId,
@@ -15,6 +16,6 @@ export async function getAllQuestionBanks({
     id: doc.id,
     name: doc.get("name"),
     userId,
-    questionsNumber: doc.get("questions").length ?? 0,
+    questionsNumber: getEnabledQuestions(doc.get("questions")).length ?? 0,
   }));
 }
