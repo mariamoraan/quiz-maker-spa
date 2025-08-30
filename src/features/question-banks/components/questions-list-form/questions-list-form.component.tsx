@@ -37,7 +37,7 @@ export const QuestionsList = (props: Props) => {
               className={cn("questions-list-form__questions__li")}
             >
               <Dropdown>
-                <Button color="text" label="Editar" iconStart={<EditIcon />} />
+                <Button color="text" label="Editar" iconStart={<EditIcon />} disabled />
                 <Button onClick={() => handleDeleteQuestion(question.id)} color="text" className={cn("questions-list-form__actions--delete")} label="Eliminar" iconStart={<DeleteIcon color="var(--color-failure)"  />} />
               </Dropdown>
               {question.text}
