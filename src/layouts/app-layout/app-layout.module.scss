@@ -4,7 +4,7 @@
   flex-direction: column;
   overflow: hidden;
   &__main {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     flex: 1;
     overflow-y: auto;
     > * {
@@ -26,7 +26,7 @@
   .app-layout {
     flex-direction: row-reverse;
     &__main {
-      margin-bottom: 0;
+      margin-bottom: 24px;
       flex: 1;
       overflow-y: auto;
     }

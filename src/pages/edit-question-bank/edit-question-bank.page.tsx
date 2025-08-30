@@ -15,6 +15,7 @@ import { QuestionsList } from "@/features/question-banks/components/questions-li
 import { Button } from "@/core/components/button/button.component";
 import { useTranslation } from "react-i18next";
 import { postQuestionBank } from "@/features/question-banks/services/post-question-bank";
+import { getEnabledQuestions } from "@/features/question-banks/utils/get-enabled-questions";
 const cn = bind(styles);
 
 export const EditQuestionBankPage = () => {
@@ -37,6 +38,7 @@ export const EditQuestionBankPage = () => {
     const setup = async (bankId: string) => {
       setIsLoading(true);
       const resBank = await getQuestionBank(bankId);
+      setName(resBank?.name ?? "");
       setQuestions(resBank?.questions ?? []);
       setQuestionBank(resBank);
       setIsLoading(false);
@@ -57,7 +59,7 @@ export const EditQuestionBankPage = () => {
     };
     await postQuestionBank(questionBank);
     setQuestionBanks([
-      ...questionBanks,
+      ...questionBanks.filter((qb) => qb.id !== questionBank.id),
       {
         id: questionBank.id,
         name: questionBank.name,
@@ -94,7 +96,7 @@ export const EditQuestionBankPage = () => {
         onClick={editBank}
         label={t("question-bank-form.edit-question-bank")}
         color="primary"
-        disabled={!name || questions.length === questionBank.questions.length}
+        disabled={!name || getEnabledQuestions(questions).length === questionBank.questions.length}
         center
         className={cn("new-question-bank-page__button")}
       />

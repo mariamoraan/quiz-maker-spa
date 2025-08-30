@@ -31,7 +31,7 @@ export const QuestionsList = (props: Props) => {
       <h2 className={cn("questions-list-form__title")}>{t("questions")}</h2>
       {questions.length ? (
         <ol className={cn("questions-list-form__questions")}>
-          {questions.map((question) => (
+          {questions.filter(q => !q.isDisabled).map((question) => (
             <li
               key={question.id}
               className={cn("questions-list-form__questions__li")}
