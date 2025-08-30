@@ -2,7 +2,7 @@ import { EditIcon, ForwardIcon, GoBackArrowIcon, HeartFilledIcon, HeartOutlinedI
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
-import type { QuestionBank, QuestionBanksList, QuestionBanksListItem } from "@/features/question-banks/domain/question-bank";
+import type { QuestionBank, QuestionBanksListItem } from "@/features/question-banks/domain/question-bank";
 import { getQuestionBank } from "@/features/question-banks/services/get-question-bank";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
