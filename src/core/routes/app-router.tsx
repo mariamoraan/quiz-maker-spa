@@ -8,6 +8,8 @@ import { QuestionBankPage } from "@/pages/question-bank/question-bank.page";
 import { QuizPage } from "@/pages/quiz/quiz.page";
 import { ProfilePage } from "@/pages/profile/profile.page";
 import { EditQuestionBankPage } from "@/pages/edit-question-bank/edit-question-bank.page";
+import { ROUTES } from "./routes";
+import { FavoritesPage } from "@/pages/favorites/favorites.page";
 
 export const AppRouter = () => {
   return (
@@ -15,6 +17,7 @@ export const AppRouter = () => {
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route index element={<HomePage />} />
+          <Route path={ROUTES.FAVORITES} element={<FavoritesPage />} />
           <Route path="settings" index element={<ProfilePage />} />
           <Route path="/question-banks/:id" element={<QuestionBankPage />} />
           <Route

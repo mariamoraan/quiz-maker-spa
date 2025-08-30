@@ -16,6 +16,10 @@ import { IoMdArrowDropup } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { RiEdit2Line } from "react-icons/ri";
 import { MdOutlineDelete } from "react-icons/md";
+import { GoHeart } from "react-icons/go";
+import { GoHeartFill } from "react-icons/go";
+import { IoReloadOutline } from "react-icons/io5";
+
 
 export {
   FcGoogle as GoogleIcon,
@@ -35,5 +39,8 @@ export {
   IoMdArrowDropup as TriangleIcon,
   HiOutlineDotsVertical as DotsVerticalIcon,
   RiEdit2Line as EditIcon,
-  MdOutlineDelete as DeleteIcon
+  MdOutlineDelete as DeleteIcon,
+  GoHeart as HeartOutlinedIcon,
+  GoHeartFill as HeartFilledIcon,
+  IoReloadOutline as LoadIcon,
 };

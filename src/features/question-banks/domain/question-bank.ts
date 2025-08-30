@@ -5,8 +5,11 @@ export interface QuestionBank {
   name: string;
   questions: Question[];
   userId: string;
+  isFavorite?: boolean;
 }
 
-export type QuestionBanksList = (Omit<QuestionBank, "questions"> & {
+export type QuestionBanksListItem = (Omit<QuestionBank, "questions"> & {
   questionsNumber: number;
-})[];
+});
+
+export type QuestionBanksList = QuestionBanksListItem[];

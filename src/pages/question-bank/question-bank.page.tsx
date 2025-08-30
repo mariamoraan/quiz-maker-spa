@@ -1,8 +1,8 @@
-import { ForwardIcon, GoBackArrowIcon } from "@/core/icons";
+import { EditIcon, ForwardIcon, GoBackArrowIcon, HeartFilledIcon, HeartOutlinedIcon } from "@/core/icons";
 import { ROUTES } from "@/core/routes/routes";
 import { useAuth } from "@/features/auth/context/auth.context";
 import { useQuestionBanks } from "@/features/question-banks/context/question-banks.context";
-import type { QuestionBank } from "@/features/question-banks/domain/question-bank";
+import type { QuestionBank, QuestionBanksList, QuestionBanksListItem } from "@/features/question-banks/domain/question-bank";
 import { getQuestionBank } from "@/features/question-banks/services/get-question-bank";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -15,6 +15,8 @@ import { getAllScores } from "@/features/quiz/services/get-all-scores";
 import { getMessageBasedOnScore } from "../../features/quiz/utils/get-message-based-on-score";
 import { getInitialQuestionBank } from "@/features/question-banks/utils/get-initial-question-bank";
 import { QuestionCard } from "@/features/question-banks/components/question-card/question-card.component";
+import { Dropdown } from "@/core/components/dropdown/dropdown.component";
+import { postQuestionBank } from "@/features/question-banks/services/post-question-bank";
 const cn = bind(styles);
 
 export const QuestionBankPage = () => {
@@ -22,12 +24,13 @@ export const QuestionBankPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { questionBanks } = useQuestionBanks();
+  const { questionBanks,setQuestionBanks } = useQuestionBanks();
   const [questionBank, setQuestionBank] = useState<QuestionBank | null>(
     getInitialQuestionBank(questionBanks, id)
   );
   const [scores, setScores] = useState<Score[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingToggleFavorite, setIsLoadingToggleFavorite] = useState(false);
 
   useEffect(() => {
     setQuestionBank(getInitialQuestionBank(questionBanks, id));
@@ -70,6 +73,23 @@ export const QuestionBankPage = () => {
     );
   };
 
+  const toggleFavorite = async() => {
+    if (!questionBank) return;
+    const newQuestionBank = { ...questionBank, isFavorite: !questionBank.isFavorite };
+    setIsLoadingToggleFavorite(true)
+    setQuestionBank(newQuestionBank);
+    setQuestionBanks(prev => prev.map((bank) => bank.id === newQuestionBank.id 
+    ? { ...newQuestionBank, questionsNumber: newQuestionBank.questions.length } as QuestionBanksListItem 
+    : bank));
+    try { 
+      await postQuestionBank(newQuestionBank);
+    } catch (error) {
+      console.error("Error updating question bank:", error);
+    } finally {
+      setIsLoadingToggleFavorite(false);
+    }
+  };
+
   return (
     <div className={cn("question-bank")}>
       <div className={cn("question-bank__header")}>
@@ -79,7 +99,18 @@ export const QuestionBankPage = () => {
         <h1 className={cn("question-bank__header__title")}>
           {questionBank.name}
         </h1>
-        <Link to={ROUTES.EDIT_QUESTION_BANK(questionBank.id)}>Editar</Link>
+        <Dropdown position={{ left: "-80px" }}>
+          <Link className={cn("question-bank__action")} to={ROUTES.EDIT_QUESTION_BANK(questionBank.id)}><EditIcon />Editar</Link>
+          <Button 
+          className={cn("question-bank__action")} 
+          onClick={toggleFavorite} 
+          label="Favorito"
+          iconStart={questionBank.isFavorite ? <HeartFilledIcon /> : <HeartOutlinedIcon />}
+          color="text"
+          isLoading={isLoadingToggleFavorite}
+          />
+        </Dropdown>
+       
       </div>
       <div className={cn("question-bank__info")}>
         {scores?.length ? (

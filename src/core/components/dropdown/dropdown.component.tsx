@@ -9,16 +9,17 @@ const cn = bind(styles)
 interface Props {
     children: React.ReactNode;
     className?: string;
+    position?: { top?: number | string; left?: number | string; bottom?: number | string; right?: number | string };
 }
 
-export const Dropdown = ({ children, className }: Props) => {
+export const Dropdown = ({ children, className, position }: Props) => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     useOnClickOutside(dropdownRef, () => setIsOpen(false));
     return (
         <div className={cn("dropdown")} ref={dropdownRef}>
             <Button className={cn("dropdown__toggle", {"dropdown__toggle--active": isOpen})} color="text" label={<DotsVerticalIcon />} onClick={() => setIsOpen(!isOpen)} />
-            <div className={cn("dropdown__content", className,{"dropdown__content--visible": isOpen})}>
+            <div className={cn("dropdown__content", className,{"dropdown__content--visible": isOpen})}  style={{ ...position }}>
                 {children}
             </div>
         </div>

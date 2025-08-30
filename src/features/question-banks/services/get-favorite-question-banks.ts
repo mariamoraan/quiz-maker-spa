@@ -3,12 +3,12 @@ import { db } from "@/core/firebase";
 import type { QuestionBanksList } from "../domain/question-bank";
 import { getEnabledQuestions } from "../utils/get-enabled-questions";
 
-export async function getAllQuestionBanks({
+export async function getFavoriteQuestionBanks({
   userId,
 }: {
   userId: string;
 }): Promise<QuestionBanksList> {
-  const q = query(collection(db, "banks"), where("userId", "==", userId));
+  const q = query(collection(db, "banks"), where("userId", "==", userId), where("isFavorite", "==", true));
 
   const snapshot = await getDocs(q);
 

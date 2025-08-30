@@ -13,9 +13,11 @@ interface Props {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   center?: boolean;
+  isLoading?: boolean;
 }
 
 export const Button = ({
+  isLoading,
   label,
   onClick,
   className,
@@ -31,7 +33,7 @@ export const Button = ({
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       className={cn("button", {
         "button--small": size === "small",
         "button--medium": size === "medium",
@@ -42,11 +44,21 @@ export const Button = ({
         "button--none": color === "none",
         "button--text": color === "text",
         "button--center": center,
+        "button--loading": isLoading
       }, className)}
     >
-      {iconStart ? iconStart : null}
-      {label}
-      {iconEnd ? iconEnd : null}
+      {
+      isLoading ? <>
+        <div className={cn("button__loader")} />
+        {label}
+      </>
+      : <>
+        {iconStart ? iconStart : null}
+        {label}
+        {iconEnd ? iconEnd : null}
+      </>
+      }
+      
     </button>
   );
 };

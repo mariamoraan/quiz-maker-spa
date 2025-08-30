@@ -8,6 +8,7 @@ interface QuestionBankDTO {
   name: string;
   userId: string;
   questions: any[];
+  isFavorite?: boolean;
 }
 
 const questionBankMapper = (data: QuestionBankDTO): QuestionBank => {
@@ -16,6 +17,7 @@ const questionBankMapper = (data: QuestionBankDTO): QuestionBank => {
     name: data.name,
     userId: data.userId,
     questions: getEnabledQuestions(data.questions),
+    isFavorite: data?.isFavorite,
   };
 };
 
